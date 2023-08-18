@@ -1,0 +1,4 @@
+#1. Viết chương trình mô phỏng các lỗi mà AGV gặp phải
+    - Lỗi bất kỳ >> Dừng lại, đến khi hết lỗi.(Mã lỗi còn lại)
+    - Pin yếu  >> Liên quan tới tốc độ của AGV tại các mức điện áp khác nhau, nếu điện áp thấp AGV dừng lại. (Mã lỗi 451)
+    - Dừng chờ >> AGV Dừng lại, sau 1 thời gian thì di chuyển tiếp. (Mã lỗi 441)

@@ -1,0 +1,45 @@
+#1. NN_infoRespond: thông tin của AGV gửi lên traffic 
+    - x: Tọa độ theo trục x của agv 
+    - y: Tọa độ theo trục y của agv
+    - z: Góc hiện tại của AGV
+    - offset: đoạn lùi của AGV(nhận từ traffic)
+    - tag: đoạn lùi của AGV(nhận từ traffic)
+    - battery: điện áp hiện tại của AGV
+    - status: trạng thái của agv
+      + 0: bình thường
+      + 1: có cảnh báo
+      + 2: có lỗi
+      + 5: liên quan hủy nhiệm vụ
+
+    - mode: chế độ hoạt động hiện tại của agv
+      + 1: bằng tay 
+      + 2: tự động
+
+    - task_status: nhiệm vụ hiện tại
+        + 64: nâng kệ nhưng không có kệ 
+        + 65: nâng kệ
+        + 66: hạ kệ 
+        + 5: về sạc 
+        + 0: không xác định
+        + 6: hạ kệ xong về sạc ??????
+
+    - error_device: ko thấy dùng
+    - error_moving: báo AGV đáng có/không lỗi 
+    - error_perform: báo process đang được thực hiện trong code - biến hệ thống 
+      + 30: chế độ bằng tay 
+      + 
+
+    - listError: danh sách lỗi dạng ID 
+      + 441: lỗi di chuyển hết điểm
+      + 122: lỗi va chạm badershock
+      + 451: lỗi pin yếu
+    - process: nhiệm vụ đang làm hiện tại( đoạn code trong process nào đang được chạy)  - biến hệ thống
+
+#2. NN_infoRequest: Thông tin của AGV từ traffic gửi xuống
+    - id_agv: ID của AGV
+    - name_agv: tên của AGV
+
+#3. NN_cmdRequest: Lệnh cho AGV từ traffic gửi xuống
+    - 
+
+#4 request_move: yêu cầu AGV di chuyển

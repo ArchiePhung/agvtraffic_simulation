@@ -1,0 +1,4 @@
+bool is_agv1_collide
+bool is_agv2_collide
+bool is_agv3_collide
+bool is_agv4_collide

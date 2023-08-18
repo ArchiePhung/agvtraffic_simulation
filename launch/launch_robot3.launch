@@ -1,0 +1,27 @@
+<launch>  
+  <!-- Giao tiếp với traffic -->
+  <!-- <node name="stiClient" pkg="agvtraffic_simulation" type="stiClient.py"/> -->
+
+  <!-- Nhận lộ trình và lỗi từ stiControl_fake -->
+  <node name="stiClient3_fake" pkg="agvtraffic_simulation" type="stiClient3_fake.py"/>
+
+  <node name="stiDevice3_fake" pkg="agvtraffic_simulation" type="stiDevice_fake.py" output="screen" >
+    <rosparam command="load" file="$(find agvtraffic_simulation)/config/param_robot3.yaml" />
+  </node>
+
+  <!-- Điều phối chung -->
+  <node name="stiControl3_fake" pkg="agvtraffic_simulation" type="stiControl_fake.py">
+    <rosparam command="load" file="$(find agvtraffic_simulation)/config/param_robot3.yaml" />
+  </node>
+
+  <!-- Điều hướng AGV  -->
+  <node name="goal3_control" pkg="agvtraffic_simulation" type="goal_control.py" >
+    <rosparam command="load" file="$(find agvtraffic_simulation)/config/param_robot3.yaml" />
+  </node>
+  
+  <!-- AGV - TF -->
+  <node name="agv3_sim" pkg="agvtraffic_simulation" type="agv_sim.py" respawn="false" >
+    <rosparam command="load" file="$(find agvtraffic_simulation)/config/param_robot3.yaml" />
+  </node>
+
+</launch>

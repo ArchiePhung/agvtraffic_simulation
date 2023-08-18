@@ -1,0 +1,3 @@
+1. Đã đẩy được AGV lên traffic, hiện được thông tin lên traffic rồi,
+2. Đang thực hiện việc AGV di chuyển theo lệnh của traffic 
+   + Giả gửi lộ trình cho AGV bằng lệnh /NN_cmdRequest nhưng topic /request_move ko có dữ liệu hiển thị ra 

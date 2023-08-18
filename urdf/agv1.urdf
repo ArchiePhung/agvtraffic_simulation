@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+
+<robot name="agv1_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Định nghĩa các màu sắc cho AGV -->
+    <material name="green">
+        <color rgba="0 1 0 1"/>
+    </material>
+
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
+    <material name="blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+
+    <material name="orange">
+        <color rgba="1.0 0.42 0.04 1.0"/>
+    </material>
+
+    <material name="palegreen">
+        <color rgba="0.596 0.98 0.596 1.0"/>
+    </material>
+
+    <material name="skyblue">
+        <color rgba="0.53 0.81 0.92 1.0"/>
+    </material>    
+
+    <material name="salmonred">
+        <color rgba="0.98 0.5 0.447 1.0"/>
+    </material>
+
+    <material name="bisque_orange">
+        <color rgba="1 0.894 0.767 1.0"/>
+    </material>
+
+    <!-- Mô tả AGV1 -->
+    <link name="agv1">
+        <visual>
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+
+            <material name="green"/>
+        </visual>
+    </link>
+    
+    <link name="agv1_safety">
+        <visual>
+            <geometry>
+                <cylinder length="0.02" radius="0.3"/>
+            </geometry>
+
+            <material name="palegreen"/>
+        </visual>
+    </link>
+
+    <joint name="agv1_to_agv1Safety" type="fixed">
+        <parent link="agv1"/>
+        <child link="agv1_safety"/>
+        <origin xyz="0 0 0"/>
+    </joint>   
+
+</robot>

@@ -1,0 +1,3 @@
+string agv_pairs
+uint8 error_id
+string time_collision

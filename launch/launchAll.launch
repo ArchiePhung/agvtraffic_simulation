@@ -1,0 +1,44 @@
+<launch>
+  <rosparam command="load" file="$(find agvtraffic_simulation)/config/paramAll.yaml" />
+
+  <node pkg="tf" type="static_transform_publisher" name="agv1_to_agv1Safety" args="0 0 0 0 0 0 agv1 agv1_safety 30" />
+  <!-- <node pkg="tf" type="static_transform_publisher" name="agv2_to_agv2Safety" args="0 0 0 0 0 0 agv2 agv2_safety 30" />
+  <node pkg="tf" type="static_transform_publisher" name="agv3_to_agv3Safety" args="0 0 0 0 0 0 agv3 agv3_safety 30" />
+  <node pkg="tf" type="static_transform_publisher" name="agv4_to_agv4Safety" args="0 0 0 0 0 0 agv4 agv4_safety 30" /> -->
+
+  <arg name="agv1" default="$(find agvtraffic_simulation)/urdf/agv1.urdf"/>
+  <!-- <arg name="agv2" default="$(find agvtraffic_simulation)/urdf/agv2.urdf"/>
+  <arg name="agv3" default="$(find agvtraffic_simulation)/urdf/agv3.urdf"/>
+  <arg name="agv4" default="$(find agvtraffic_simulation)/urdf/agv4.urdf"/> -->
+
+  <param name="agv1_description" command="$(find xacro)/xacro $(arg agv1)" />
+  <!-- <param name="agv2_description" command="$(find xacro)/xacro $(arg agv2)" />
+  <param name="agv3_description" command="$(find xacro)/xacro $(arg agv3)" />
+  <param name="agv4_description" command="$(find xacro)/xacro $(arg agv4)" />  -->
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+    <remap from="robot_description" to="agv1_description" />
+    <!-- <remap from="robot_description" to="agv2_description" /> 
+    <remap from="robot_description" to="agv3_description" /> 
+    <remap from="robot_description" to="agv4_description" />        -->
+  </node>
+
+  <!-- robot1 launch -->
+  <include file="$(find agvtraffic_simulation)/launch/launch_robot1.launch"/>
+  <!-- robot2 launch -->
+  <!-- <include file="$(find agvtraffic_simulation)/launch/launch_robot2.launch"/> -->
+  <!-- robot3 launch -->
+  <!-- <include file="$(find agvtraffic_simulation)/launch/launch_robot3.launch"/> -->
+  <!-- robot4 launch -->
+  <!-- <include file="$(find agvtraffic_simulation)/launch/launch_robot4.launch"/> -->
+
+  <!-- Phát hiện va chạm  output="screen"-->
+  <!-- <node name="detect_agv_collision" pkg="agvtraffic_simulation" type="detect_agv_collision.py" /> -->
+  
+  <!-- Dừng 2 AGV va chạm  -->
+  <!-- <node name="process_agv_collision" pkg="agvtraffic_simulation" type="process_agv_collision.py" /> -->
+
+  <!-- Hiển thị qua rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find agvtraffic_simulation)/config/rvizconfig.rviz" />  
+
+</launch> 

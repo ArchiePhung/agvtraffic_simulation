@@ -1,0 +1,13 @@
+[ERROR] [1685331530.913133]: bad callback: <bound method goalControl.move_callback of <__main__.goalControl object at 0x7f989b61bd60>>
+rospy.exceptions.ROSException: publish() to a closed topic
+
+>> never add an infinite while-loop to a callback body.
+
+
+[ERROR] [1685331521.647127338]: Exception thrown when deserializing message of length [575831] from [/goal1_control]: Buffer Overrun
+[ERROR] [1685331524.718605054]: Exception thrown when deserializing message of length [603089] from [/goal2_control]: Buffer Overrun
+
+>> The error indicates that something went wrong when serializing the message or that the serialized message was corrupted during transmission. 
+In your case, it looks like more bytes were received than required for representing some message sent by nxt_lejos_proxy_mod
+
+UnboundLocalError: local variable 'v_th_send' referenced before assignment

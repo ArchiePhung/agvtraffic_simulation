@@ -1,0 +1,49 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/archiep/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/archiep/catkin_ws/src/agvconveyor_pkg/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/amcl/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/base_local_planner/include/**",
+        "/home/archiep/catkin_ws/src/bt1/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/carrot_planner/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/clear_costmap_recovery/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/costmap_2d/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/dwa_local_planner/include/**",
+        "/home/archiep/catkin_ws/src/DynamixelSDK/ros/dynamixel_sdk/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/global_planner/include/**",
+        "/home/archiep/catkin_ws/src/hector_slam/hector_geotiff/include/**",
+        "/home/archiep/catkin_ws/src/hector_slam/hector_map_tools/include/**",
+        "/home/archiep/catkin_ws/src/hector_slam/hector_mapping/include/**",
+        "/home/archiep/catkin_ws/src/hector_slam/hector_marker_drawing/include/**",
+        "/home/archiep/catkin_ws/src/interactive_markers_tutorial/include/**",
+        "/home/archiep/catkin_ws/src/learning_tf/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/map_server/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/move_base/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/move_slow_and_clear/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/nav_core/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/navfn/include/**",
+        "/home/archiep/catkin_ws/src/r2d2/include/**",
+        "/home/archiep/catkin_ws/src/robot_setup_tf/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/rotate_recovery/include/**",
+        "/home/archiep/catkin_ws/src/simulate_agvs/include/**",
+        "/home/archiep/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/home/archiep/catkin_ws/src/using_markers/include/**",
+        "/home/archiep/catkin_ws/src/navigation-noetic/voxel_grid/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

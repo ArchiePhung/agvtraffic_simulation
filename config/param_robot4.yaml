@@ -1,0 +1,31 @@
+agv_name:              "agv4"
+agv_ip:                '192.168.1.213'
+agv_start_x:           -2.0
+agv_start_y:           -2.0
+agv_start_angle:       0.0
+khoang_nhin_truoc_max: 0.6
+
+vel_x_max: 0.8
+vel_x_min: 0.1
+vel_theta_max: 0.7
+vel_theta_min: 0.1
+tolerance_xy_max: 0.2
+tolerance_xy_min: 0.02
+tolerance_theta_max: 0.2
+tolerance_theta_min: 0.018
+
+tolerance_theta: 0.015
+tolerance_rot_step1:   0.02
+
+vel_rot_step1: 0.45
+vel_rot_step_f: 0.35
+
+gioihan_lui: 2.5
+he_so: 0.6              # K_x ????????
+khoang_nhin_truoc_max: 0.6
+khoang_nhin_truoc_min: 0.05
+khoang_offset: 1.
+need_rotaty_finish: 1
+
+time_downVolt: 4000           # miliseconds
+delta_voltage: 0.02         # Volts

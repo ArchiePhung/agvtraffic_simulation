@@ -1,0 +1,123 @@
+<launch>
+  <rosparam command="load"  file="$(find agvtraffic_simulation)/config/paramAll.yaml" />
+  
+  <!-- Giao tiếp với traffic -->
+  <!-- <node name="stiClient" pkg="agvtraffic_simulation" type="stiClient.py"/> -->
+
+  <!-- Mô tả hình dạng AGV -->
+  <arg name="agv1" default="$(find agvtraffic_simulation)/urdf/agv1.urdf"/>
+  <arg name="agv2" default="$(find agvtraffic_simulation)/urdf/agv2.urdf"/>
+  <arg name="agv3" default="$(find agvtraffic_simulation)/urdf/agv3.urdf"/>
+  <arg name="agv4" default="$(find agvtraffic_simulation)/urdf/agv4.urdf"/>
+  <param name="agv1_description" command="$(find xacro)/xacro $(arg agv1)" />
+  <param name="agv2_description" command="$(find xacro)/xacro $(arg agv2)" />
+  <param name="agv3_description" command="$(find xacro)/xacro $(arg agv3)" />
+  <param name="agv4_description" command="$(find xacro)/xacro $(arg agv4)" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+    <remap from="robot_description" to="agv4_description" />
+    <remap from="robot_description" to="agv3_description" />
+    <remap from="robot_description" to="agv2_description" />
+    <remap from="robot_description" to="agv1_description" />
+  </node>
+
+  <!-- Giao tiếp với phần mềm traffic với node stiClient -->
+
+
+  <!-- Nhận lộ trình và lỗi từ stiControl_fake -->
+  <node name="stiClient_fake" pkg="agvtraffic_simulation" type="stiClient_fake.py"/>
+  <node name="stiControl_fake" pkg="agvtraffic_simulation" type="stiControl_fake.py"/>
+
+  <!-- Điều hướng AGV  -->
+  <node name="goal1_control" pkg="agvtraffic_simulation" type="goal_control.py" >
+    <param name="agv_name" type="string" value="agv1" />
+    <param name="agv_id" type="int" value="1" />
+    <param name="agv_start_x" type="double" value="0.0" />
+    <param name="agv_start_y" type="double" value="0.0" />
+    <param name="agv_start_angle" type="double" value="0.0" />
+
+    <param name="khoang_nhin_truoc_max" type="double" value="0.6" />
+    <param name="tolerance_rot_step1" type="double" value="0.02" />
+    <param name="vel_rot_step1" type="double" value="0.45" />
+  </node>
+
+  <node name="goal2_control" pkg="agvtraffic_simulation" type="goal_control.py">
+    <param name="agv_name" type="string" value="agv2" />
+    <param name="agv_id" type="int" value="2" />
+    <param name="agv_start_x" type="double" value="2.0" />
+    <param name="agv_start_y" type="double" value="1.0" />
+    <param name="agv_start_angle" type="double" value="1.5708" />
+
+    <param name="khoang_nhin_truoc_max" type="double" value="0.6" />
+    <param name="tolerance_rot_step1" type="double" value="0.02" />
+    <param name="vel_rot_step1" type="double" value="0.45" />
+  </node>
+
+  <node name="goal3_control" pkg="agvtraffic_simulation" type="goal_control.py" >
+    <param name="agv_name" type="string" value="agv3" />
+    <param name="agv_id" type="int" value="3" />
+    <param name="agv_start_x" type="double" value="1.0" />
+    <param name="agv_start_y" type="double" value="1.0" />
+    <param name="agv_start_angle" type="double" value="-1.5708" />
+
+    <param name="khoang_nhin_truoc_max" type="double" value="0.6" />
+    <param name="tolerance_rot_step1" type="double" value="0.02" />
+    <param name="vel_rot_step1" type="double" value="0.45" />
+  </node>
+
+   <node name="goal4_control" pkg="agvtraffic_simulation" type="goal_control.py" >
+    <param name="agv_name" type="string" value="agv4" />
+    <param name="agv_id" type="int" value="4" />
+    <param name="agv_start_x" type="double" value="-2.0" />
+    <param name="agv_start_y" type="double" value="-2.0" />
+    <param name="agv_start_angle" type="double" value="0.0" />
+
+    <param name="khoang_nhin_truoc_max" type="double" value="0.6" />
+    <param name="tolerance_rot_step1" type="double" value="0.02" />
+    <param name="vel_rot_step1" type="double" value="0.45" />
+  </node>
+
+  <!-- AGV - TF -->
+  <node name="agv1_sim" pkg="agvtraffic_simulation" type="agv_sim.py" respawn="false"  >
+    <param name="agv_name" type="string" value="agv1" />
+    <param name="agv_id" type="int" value="1" />
+    <param name="agv_start_x" type="double" value="0.0" />
+    <param name="agv_start_y" type="double" value="0.0" />
+    <param name="agv_start_angle" type="double" value="0.0" />
+
+  </node>
+
+  <node name="agv2_sim" pkg="agvtraffic_simulation" type="agv_sim.py" respawn="false" >
+    <param name="agv_name" type="string" value="agv2" />
+    <param name="agv_id" type="int" value="2" />
+    <param name="agv_start_x" type="double" value="2.0" />
+    <param name="agv_start_y" type="double" value="1.0" />
+    <param name="agv_start_angle" type="double" value="1.5708" />
+
+  </node>
+
+  <node name="agv3_sim" pkg="agvtraffic_simulation" type="agv_sim.py" respawn="false" >
+    <param name="agv_name" type="string" value="agv3" />
+    <param name="agv_id" type="int" value="3" />
+    <param name="agv_start_x" type="double" value="1.0" />
+    <param name="agv_start_y" type="double" value="1.0" />
+    <param name="agv_start_angle" type="double" value="-1.5708" />
+
+  </node>
+
+  <node name="agv4_sim" pkg="agvtraffic_simulation" type="agv_sim.py" respawn="false"  >
+    <param name="agv_name" type="string" value="agv4" />
+    <param name="agv_id" type="int" value="4" />
+    <param name="agv_start_x" type="double" value="-2.0" />
+    <param name="agv_start_y" type="double" value="-2.0" />
+    <param name="agv_start_angle" type="double" value="0.0" />
+
+  </node>
+
+  <!-- Phát hiện va chạm  output="screen"-->
+  <node name="detect_agv_collision" pkg="agvtraffic_simulation" type="detect_agv_collision.py" />
+
+  <!-- Hiển thị qua rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find agvtraffic_simulation)/config/rvizconfig.rviz" />  
+
+</launch>

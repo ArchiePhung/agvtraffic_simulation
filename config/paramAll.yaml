@@ -1,0 +1,14 @@
+#---------- Số lượng AGV -----------------------#
+number_agv: 4
+#---------- Thông số chung của AGV -------------------#
+agv_radius: 0.2              # mét
+agv_width: 0.7               # mét
+agv_length: 1.1              # mét
+safety_zone: 0.1             # mét
+min_voltage: 23.0            # volt
+max_voltage: 25.5            # volt
+
+# time_TempStop: 3             # second
+#---------- Biến hệ thống -------------------#
+rate: 50                     # Hz
+
